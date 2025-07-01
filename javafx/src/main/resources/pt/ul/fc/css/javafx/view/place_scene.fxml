@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.css.javafx.controller.PlaceController">
+  <children>
+    <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <VBox spacing="10.0" alignment="TOP_CENTER">
+          <padding>
+            <Insets top="14.0" left="18.0" right="18.0" bottom="14.0" />
+          </padding>
+          <children>
+            <Label text="Dashboard" style="-fx-font-weight: bold; -fx-font-size: 16;">
+              <font>
+                <Font size="18.0" />
+              </font>
+            </Label>
+            <VBox spacing="8.0" alignment="TOP_LEFT">
+              <children>
+                <Button fx:id="playerNavButton" mnemonicParsing="false" onAction="#switchToPlayerView" text="Players" />
+                <Button fx:id="refereeNavButton" mnemonicParsing="false" onAction="#switchToRefereeView" text="Referees" />
+                <Button fx:id="teamNavButton" mnemonicParsing="false" onAction="#switchToTeamView" text="Teams" />
+                <Button fx:id="matchNavButton" mnemonicParsing="false" onAction="#switchToMatchView" text="Matches" />
+                <Button fx:id="placeNavButton" mnemonicParsing="false" onAction="#switchToPlaceView" text="Places" />
+                <Button fx:id="tournamentNavButton" mnemonicParsing="false" onAction="#switchToTournamentView" text="Tournaments" />
+                <Button fx:id="logoutNavButton" mnemonicParsing="false" onAction="#switchToLoginView" text="Logout" />
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0" fitToWidth="true" fitToHeight="true" focusTraversable="false">
+          <content>
+            <AnchorPane minHeight="-1.0" minWidth="-1.0" focusTraversable="false">
+              <children>
+                <VBox alignment="TOP_CENTER" spacing="20.0" focusTraversable="false" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <children>
+                    <Label text="Place Management" alignment="CENTER" style="-fx-font-weight: bold; -fx-font-size: 18;">
+                      <font>
+                        <Font size="18.0" />
+                      </font>
+                    </Label>
+                    <VBox spacing="15.0" alignment="CENTER" focusTraversable="false">
+                      <children>
+                        <Button mnemonicParsing="false" focusTraversable="false" text="Create Place" onAction="#switchToCreationView"/>
+                      </children>
+                    </VBox>
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+
+        <VBox alignment="TOP_CENTER" spacing="10.0" style="-fx-padding: 20; -fx-background-color: #f8f8f8;">
+          <padding>
+            <Insets top="14.0" left="20.0" right="20.0" bottom="14.0" />
+          </padding>
+          <children>
+            <Label text="Place List" alignment="CENTER" style="-fx-font-weight: bold; -fx-font-size: 16;">>
+              <font>
+                <Font size="18.0" />
+              </font>
+            </Label>
+            <TableView fx:id="placesTable" prefWidth="600" style="-fx-background-color: transparent;">
+              <columns>
+                <TableColumn fx:id="placeIdColumn" text="ID" prefWidth="50" />
+                <TableColumn fx:id="stadiumColumn" text="Stadium" prefWidth="200" />
+                <TableColumn fx:id="dateTimeColumn" text="Date" prefWidth="250" />
+              </columns>
+            </TableView>
+          </children>
+        </VBox>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>

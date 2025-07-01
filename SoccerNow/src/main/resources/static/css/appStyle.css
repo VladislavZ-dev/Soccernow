@@ -1,0 +1,92 @@
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #90ce94; /* fallback */
+    color: #074126;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Wrapper around image and form */
+.image-wrapper {
+    position: relative;
+    width: 1024px;
+    height: 1024px;
+}
+
+/* Static background image */
+.image-wrapper img {
+    width: 1024px;
+    height: 1024px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Login form container centered in image */
+.login-container {
+    position: absolute;
+    top: 55%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    
+    background: white;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1;
+    min-width: 300px;
+}
+
+/* Headings */
+.login-container h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #074126;
+}
+
+/* Form elements */
+.login-container label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #074126;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Button style */
+.login-container button {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 12px;
+    background-color: #074126;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #032004;
+}

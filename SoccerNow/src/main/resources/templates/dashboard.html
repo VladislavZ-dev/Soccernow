@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+
+<body>
+    <div class="background-images">
+        <img src="/images/batman_in_air.jpeg" class="bg top-left" />
+        <img src="/images/batman_bicycle_kick.jpeg" class="bg top-right" />
+        <img src="/images/batman_kicking_ball.jpeg" class="bg bottom-left" />
+        <img src="/images/batman_striking.jpeg" class="bg bottom-right" />
+    </div>
+
+    <div class="container">
+        <div>
+            <h1>Soccer Now</h1>
+
+            <h2>Where the most professional athletes play the most thrilling matches</h2>
+
+            <ol>
+                <li class="action"><a th:href="@{/player-search-with-filter}">Search Players</a></li>
+                <li class="action"><a th:href="@{/team-search-with-filter}">Search Teams</a></li>
+                <li class="action"><a th:href="@{/tournament-search-with-filter}">Search Tournaments</a></li>
+                <li class="action"><a th:href="@{/register-match-page}">Register Result of a Game</a></li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

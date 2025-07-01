@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.css.javafx.controller.TournamentController">
+  <children>
+    <SplitPane dividerPositions="0.2505567928730512,0.7505567928730512" VBox.vgrow="ALWAYS">
+      <items>
+        <VBox spacing="10.0" alignment="TOP_CENTER">
+          <padding>
+            <Insets top="14.0" left="18.0" right="18.0" bottom="14.0" />
+          </padding>
+          <children>
+            <Label text="Dashboard" style="-fx-font-weight: bold; -fx-font-size: 16;">
+              <font><Font size="18.0" /></font>
+            </Label>
+            <VBox spacing="8.0" alignment="TOP_LEFT">
+              <children>
+                <Button fx:id="playerNavButton" text="Players" onAction="#switchToPlayerView" />
+                <Button fx:id="refereeNavButton" text="Referees" onAction="#switchToRefereeView" />
+                <Button fx:id="teamNavButton" text="Teams" onAction="#switchToTeamView" />
+                <Button fx:id="matchNavButton" text="Matches" onAction="#switchToMatchView" />
+                <Button fx:id="placeNavButton" mnemonicParsing="false" onAction="#switchToPlaceView" text="Places" />
+                <Button fx:id="tournamentNavButton" text="Tournaments" onAction="#switchToTournamentView" />
+                <Button fx:id="logoutNavButton" text="Logout" onAction="#switchToLoginView" />
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+          <content>
+            <AnchorPane>
+              <children>
+                <VBox alignment="TOP_CENTER" spacing="20.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <children>
+                    <Label text="Tournament Management" alignment="CENTER" style="-fx-font-weight: bold; -fx-font-size: 18;">
+                      <font><Font size="18.0" /></font>
+                    </Label>
+                    <VBox spacing="15.0" alignment="CENTER">
+                      <children>
+                        <Button text="Create Tournament" onAction="#switchToCreationView" />
+                        <Button text="Update Tournament" onAction="#switchToUpdateView" />
+                        <Button text="Schedule Match" onAction="#switchToScheduleView" />
+                        <Button text="Mark Played Match" onAction="#switchToMarkedView" />
+                        <Button text="Remove Tournament" onAction="#switchToDeletionView" />
+                      </children>
+                    </VBox>
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+
+        <VBox alignment="TOP_CENTER" spacing="10.0">
+          <padding>
+            <Insets top="14.0" left="20.0" right="20.0" bottom="14.0" />
+          </padding>
+          <children>
+            <Label text="Tournament List" alignment="CENTER" style="-fx-font-weight: bold; -fx-font-size: 16;">>
+              <font><Font size="18.0" /></font>
+            </Label>
+
+            <TableView fx:id="tournamentsTable" prefHeight="300" prefWidth="600">
+              <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="100"/>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="250"/>
+                <TableColumn fx:id="typeColumn" text="Type" prefWidth="250"/>
+              </columns>
+            </TableView>
+          </children>
+        </VBox>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>

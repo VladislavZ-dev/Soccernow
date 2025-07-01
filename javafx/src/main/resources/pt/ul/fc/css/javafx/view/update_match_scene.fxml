@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="900.0" stylesheets="@styles.css"
+      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pt.ul.fc.css.javafx.controller.MatchController">
+  <children>
+    <SplitPane dividerPositions="0.25, 0.75" VBox.vgrow="ALWAYS">
+      <items>
+        <VBox alignment="TOP_CENTER" spacing="10" style="-fx-padding: 20;">
+          <Label text="Dashboard" style="-fx-font-size: 18;">
+            <padding>
+              <Insets bottom="10"/>
+            </padding>
+          </Label>
+          <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 0 0 0 20;">
+            <Button fx:id="playerNavButton" text="Players" styleClass="nav-button" onAction="#switchToPlayerView"/>
+            <Button fx:id="refereeNavButton" text="Referees" styleClass="nav-button" onAction="#switchToRefereeView"/>
+            <Button fx:id="teamNavButton" text="Teams" styleClass="nav-button" onAction="#switchToTeamView"/>
+            <Button fx:id="matchNavButton" text="Matches" styleClass="nav-button" onAction="#switchToMatchView"/>
+            <Button fx:id="placeNavButton" mnemonicParsing="false" onAction="#switchToPlaceView" text="Places" />
+            <Button fx:id="tournamentNavButton" text="Tournaments" styleClass="nav-button" onAction="#switchToTournamentView"/>
+            <Button fx:id="logoutNavButton" text="Logout" styleClass="nav-button" onAction="#switchToLoginView"/>
+          </VBox>
+        </VBox>
+
+        <ScrollPane fitToWidth="true">
+          <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+            <Label text="Update Match" style="-fx-font-size: 18;"/>
+            <VBox alignment="CENTER" spacing="20">
+              <Label text="Match ID:"/>
+              <TextField fx:id="idField" promptText="Enter Match ID"/>
+              <Button fx:id="registerGoalsButton" text="Register Goals" styleClass="action-button" onAction="#registerGoals"/>
+              <Button fx:id="registerCardButton" text="Register Card" styleClass="action-button" onAction="#registerCard"/>
+              <Button fx:id="backButton" text="Back" styleClass="nav-button" onAction="#switchToMatchView"/>
+            </VBox>
+          </VBox>
+        </ScrollPane>
+
+        <VBox alignment="TOP_CENTER" spacing="10" style="-fx-padding: 20;">
+          <Label text="Match List" style="-fx-font-weight: bold; -fx-font-size: 16;">
+            <padding>
+              <Insets bottom="10"/>
+            </padding>
+          </Label>
+
+          <TableView fx:id="matchesTable" prefWidth="300">
+            <columns>
+              <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+              <TableColumn fx:id="placeColumn" text="Place" prefWidth="150"/>
+              <TableColumn fx:id="lineup1Column" text="Lineup 1" prefWidth="200"/>
+              <TableColumn fx:id="lineup2Column" text="Lineup 2" prefWidth="200"/>
+              <TableColumn fx:id="refereeIdColumn" text="Referee ID" prefWidth="80"/>
+            </columns>
+          </TableView>
+        </VBox>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>

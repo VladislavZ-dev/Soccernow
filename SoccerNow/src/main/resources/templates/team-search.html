@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title>Team Search</title>
+    <link rel="stylesheet" th:href="@{/css/teamSearch.css}">
+</head>
+
+<body>
+    <div class="fixed-buttons">
+        <form class="goBackButton" th:action="@{/dashboard}" method="get">
+            <button type="submit" class="go-back-button">Go Back</button>
+        </form>
+    </div>
+    
+    <div class="container">
+        <h2>Team Search</h2>
+
+        <form class="search-form" method="get" th:action="@{/team-search-with-filter}">
+            <input type="text" name="name" placeholder="Search by name">
+            <input type="number" name="numPlayers" placeholder="Num of Players" min="0">
+            <input type="number" name="numWins" placeholder="Num Wins" min="0">
+            <input type="number" name="numDraws" placeholder="Num Draws" min="0">
+            <input type="number" name="numLosses" placeholder="Num Losses" min="0">
+
+            <select name="trophy">
+                <option value="">All Trophies</option>
+                <option value="first">First Place</option>
+                <option value="second">Second Place</option>
+                <option value="third">Third Place</option>
+                <option value="participant">No Trophies</option>
+            </select>
+
+            <select name="missingPosition">
+                <option value="">No positions missing</option>
+                <option value="no goalkeeper">Missing goalkeeper</option>
+                <option value="no defender">Missing defender</option>
+                <option value="no pivot">Missing pivot</option>
+                <option value="no right winger">Missing right winger</option>
+                <option value="no left winger">Missing left winger</option>
+            </select>
+
+            <div class="search-button-locator">
+                <button type="submit" class="search-button">Search</button>
+            </div>
+        </form>
+
+        <div class="team-list">
+            <div th:each="team : ${teams}" class="team-card">
+                <h3 th:text="${team.name}">Team Name</h3>
+                <p>Num Players: <span th:text="${playersMap[team.name]}">Players</span></p>
+                <p>Num Wins: <span th:text="${winsMap[team.name]}">Players</span></p>
+                <p>Num Draws: <span th:text="${drawsMap[team.name]}">Players</span></p>
+                <p>Num Losses: <span th:text="${lossesMap[team.name]}">Players</span></p>
+                <p>Players:</p>
+                <ul>
+                    <li th:each="player : ${team.players}" th:text="${player}">Player Name</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title>Player Search</title>
+    <link rel="stylesheet" th:href="@{/css/playerSearch.css}">
+</head>
+
+<body>
+    <div class="fixed-buttons">
+        <form class="goBackButton" th:action="@{/dashboard}" method="get">
+            <button type="submit" class="go-back-button">Go Back</button>
+        </form>
+    </div>
+    
+    <div class="container">
+        <h2>Player Search</h2>
+
+        <form class="search-form" method="get" th:action="@{/player-search-with-filter}">
+            <input type="text" placeholder="Search by name" name="name">
+
+            <select name="position">
+                <option value="">All Positions</option>
+                <option value="goalkeeper">Goalkeeper</option>
+                <option value="defender">Defender</option>
+                <option value="right winger">Right Winger</option>
+                <option value="left winger">Left Winger</option>
+                <option value="pivot">Pivot</option>
+            </select>
+
+            <input type="number" name="numGoals" placeholder="Num Goals Scored" min="0">
+            <input type="number" name="numCards" placeholder="Num Cards" min="0">
+            <input type="number" name="numGames" placeholder="Matches Played" min="0">
+
+            <button type="submit" class="search-button">Search</button>
+        </form>
+
+        <div class="player-list">
+            <div th:each="player : ${players}" class="player-card">
+                <h3 th:text="${player.name}">Player Name</h3>
+                <p>Id: <span th:text="${player.id}">Position</span></p>
+                <p>Position: <span th:text="${player.position}">Position</span></p>
+                <p>Goals scored: <span th:text="${goalsMap[player.name]}">Goals</span></p>
+                <p>Cards accumulated: <span th:text="${cardsMap[player.name]}">Cards</span></p>
+                <p>Matches Played: <span th:text="${matchesMap[player.name]}">Matches</span></p>
+                <p>Teams:</p>
+                <ul>
+                    <li th:each="team : ${player.teams}" th:text="${team}">Team Name</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

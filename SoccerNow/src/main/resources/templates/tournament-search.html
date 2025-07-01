@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title>Tournament Search</title>
+    <link rel="stylesheet" th:href="@{/css/tournamentSearch.css}">
+</head>
+
+<body>
+    <div class="fixed-buttons">
+        <form class="goBackButton" th:action="@{/dashboard}" method="get">
+            <button type="submit" class="go-back-button">Go Back</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Tournament Search</h2>
+
+        <form class="search-form" method="get" th:action="@{/tournament-search-with-filter}">
+            <input type="text" placeholder="Search by tournament name" name="name">
+            <input type="text" placeholder="Filter by team" name="team">
+            <input type="number" placeholder="Games to play" name="toPlayGames">
+            <input type="number" placeholder="Games played" name="playedGames">
+
+            <div class="search-button-locator">
+                <button type="submit" class="search-button">Search</button>
+            </div>
+        </form>
+
+        <div class="tournament-list">
+            <div th:each="tournament : ${tournaments}" class="tournament-card">
+                <h3 th:text="${tournament.name}">Tournament Name</h3>
+                <p th:text="'Number Matches played: ' + ${played[tournament.id]}"></p>
+                <p th:text="'Number Matches scheduled: ' + ${toPlay[tournament.id]}"></p>
+                <p>Teams:</p>
+                <ul>
+                    <li th:each="team : ${tournament.teamsNames}" th:text="${team}">Team Name</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

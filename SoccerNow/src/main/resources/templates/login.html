@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/appStyle.css}">
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"/>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"/>
+        </div>
+        <form th:action="@{/dashboard}" method="get">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+     <div class="image-wrapper">
+        <img src="images/batman.jpeg">
+     </div>
+    
+
+</body>
+</html>

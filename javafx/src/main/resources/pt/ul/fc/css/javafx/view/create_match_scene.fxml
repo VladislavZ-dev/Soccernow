@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1100.0" stylesheets="@styles.css"
+      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pt.ul.fc.css.javafx.controller.MatchController">
+  <children>
+
+    <SplitPane dividerPositions="0.2, 0.7" VBox.vgrow="ALWAYS">
+      <items>
+        <VBox alignment="TOP_CENTER" spacing="10">
+          <Label text="Dashboard" style="-fx-font-weight: bold; -fx-font-size: 16;">
+            <padding>
+              <Insets bottom="10" />
+            </padding>
+          </Label>
+          <VBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 0 0 0 20;">
+            <Button fx:id="playerNavButton" mnemonicParsing="false" onAction="#switchToPlayerView" text="Players" />
+            <Button fx:id="refereeNavButton" mnemonicParsing="false" onAction="#switchToRefereeView" text="Referees" />
+            <Button fx:id="teamNavButton" mnemonicParsing="false" onAction="#switchToTeamView" text="Teams" />
+            <Button fx:id="matchNavButton" mnemonicParsing="false" onAction="#switchToMatchView" text="Matches" />
+            <Button fx:id="placeNavButton" mnemonicParsing="false" onAction="#switchToPlaceView" text="Places" />
+            <Button fx:id="tournamentNavButton" mnemonicParsing="false" onAction="#switchToTournamentView" text="Tournaments" />
+            <Button fx:id="logoutNavButton" mnemonicParsing="false" onAction="#switchToLoginView" text="Logout" />
+          </VBox>
+        </VBox>
+
+        <ScrollPane fitToWidth="true">
+          <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+            <Label text="Create Match" style="-fx-font-weight: bold; -fx-font-size: 18;" />
+
+            <GridPane hgap="15" vgap="10" alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="120" />
+                <ColumnConstraints halignment="LEFT" minWidth="200" />
+                <ColumnConstraints halignment="RIGHT" minWidth="120" />
+                <ColumnConstraints halignment="LEFT" minWidth="200" />
+              </columnConstraints>
+
+              <Label text="Lineup 1" style="-fx-font-weight: bold; -fx-font-size: 14;"
+                     GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+              <Label text="Lineup 2" style="-fx-font-weight: bold; -fx-font-size: 14;"
+                     GridPane.rowIndex="0" GridPane.columnIndex="2" GridPane.columnSpan="2" />
+
+              <Label text="Captain:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+              <TextField fx:id="lineup1CaptainField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200" />
+              <Label text="Captain:" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+              <TextField fx:id="lineup2CaptainField" GridPane.rowIndex="1" GridPane.columnIndex="3" prefWidth="200" />
+
+              <Label text="Goalkeeper:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+              <TextField fx:id="lineup1GoalkeeperField" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="200" />
+              <Label text="Goalkeeper:" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+              <TextField fx:id="lineup2GoalkeeperField" GridPane.rowIndex="2" GridPane.columnIndex="3" prefWidth="200" />
+
+              <Label text="Defender:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+              <TextField fx:id="lineup1DefenderField" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200" />
+              <Label text="Defender:" GridPane.rowIndex="3" GridPane.columnIndex="2" />
+              <TextField fx:id="lineup2DefenderField" GridPane.rowIndex="3" GridPane.columnIndex="3" prefWidth="200" />
+
+              <Label text="Right Winger:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+              <TextField fx:id="lineup1RightWingerField" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="200" />
+              <Label text="Right Winger:" GridPane.rowIndex="4" GridPane.columnIndex="2" />
+              <TextField fx:id="lineup2RightWingerField" GridPane.rowIndex="4" GridPane.columnIndex="3" prefWidth="200" />
+
+              <Label text="Left Winger:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+              <TextField fx:id="lineup1LeftWingerField" GridPane.rowIndex="5" GridPane.columnIndex="1" prefWidth="200" />
+              <Label text="Left Winger:" GridPane.rowIndex="5" GridPane.columnIndex="2" />
+              <TextField fx:id="lineup2LeftWingerField" GridPane.rowIndex="5" GridPane.columnIndex="3" prefWidth="200" />
+
+              <Label text="Pivot:" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+              <TextField fx:id="lineup1PivotField" GridPane.rowIndex="6" GridPane.columnIndex="1" prefWidth="200" />
+              <Label text="Pivot:" GridPane.rowIndex="6" GridPane.columnIndex="2" />
+              <TextField fx:id="lineup2PivotField" GridPane.rowIndex="6" GridPane.columnIndex="3" prefWidth="200" />
+
+              <Label text="Team 1 Name:" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+              <TextField fx:id="lineup1TeamIdField" GridPane.rowIndex="7" GridPane.columnIndex="1" prefWidth="200" />
+              <Label text="Team 2 Name:" GridPane.rowIndex="7" GridPane.columnIndex="2" />
+              <TextField fx:id="lineup2TeamIdField" GridPane.rowIndex="7" GridPane.columnIndex="3" prefWidth="200" />
+
+              <Separator GridPane.rowIndex="8" GridPane.columnIndex="0" GridPane.columnSpan="4">
+                <padding>
+                  <Insets top="10" bottom="10" />
+                </padding>
+              </Separator>
+
+              <Label text="Match Details" style="-fx-font-weight: bold; -fx-font-size: 14;"
+                     GridPane.rowIndex="9" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+
+              <Label text="Place ID:" GridPane.rowIndex="10" GridPane.columnIndex="0" />
+              <TextField fx:id="placeField" GridPane.rowIndex="10" GridPane.columnIndex="1" prefWidth="200" />
+
+              <Label text="Referee ID:" GridPane.rowIndex="10" GridPane.columnIndex="2" />
+              <TextField fx:id="refereeIdField" GridPane.rowIndex="10" GridPane.columnIndex="3" prefWidth="200" />
+            </GridPane>
+
+            <HBox alignment="CENTER" spacing="20">
+              <Button fx:id="backButton" text="Back" styleClass="nav-button" onAction="#switchToMatchView"/>
+              <Button fx:id="createMatchButton" text="Create Match" styleClass="action-button" onAction="#createMatch" />
+            </HBox>
+          </VBox>
+        </ScrollPane>
+
+        <VBox alignment="TOP_CENTER" spacing="10" style="-fx-padding: 20; -fx-background-color: #f8f8f8;">
+          <Label text="Match List" style="-fx-font-weight: bold; -fx-font-size: 16;">
+            <padding>
+              <Insets bottom="10" />
+            </padding>
+          </Label>
+
+          <TableView fx:id="matchesTable" prefWidth="300" style="-fx-background-color: transparent;">
+            <columns>
+              <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+              <TableColumn fx:id="placeColumn" text="Place" prefWidth="80" />
+              <TableColumn fx:id="lineup1Column" text="Lineup 1" prefWidth="200" />
+              <TableColumn fx:id="lineup2Column" text="Lineup 2" prefWidth="200" />
+              <TableColumn fx:id="refereeIdColumn" text="Referee ID" prefWidth="80" />
+            </columns>
+          </TableView>
+        </VBox>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>
